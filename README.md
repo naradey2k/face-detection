@@ -10,14 +10,7 @@ This project evaluates four different face detection methods on a subset of the 
 - **OpenCV DNN** - Deep learning with ResNet-based face detector
 - **RetinaFace** - State-of-the-art single-stage face detector
 - **SCRFD** - Efficient face detection with simplified implementation
-
-## 📊 Key Features
-
-- **Comprehensive Evaluation**: Precision, Recall, F1-Score, and processing speed metrics
-- **Visual Analysis**: Bounding box visualization and performance comparison charts
-- **Modular Design**: Clean, structured Python project with separate modules
-- **Docker Support**: Containerized environment for easy deployment
-- **Detailed Documentation**: Complete analysis and recommendations
+- **MTCNN** - Efficient and accurate face detection model
 
 ## 🚀 Quick Start
 
@@ -26,7 +19,7 @@ This project evaluates four different face detection methods on a subset of the 
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd face-detection-analysis
+   cd face-detection
    ```
 
 2. **Install dependencies**
@@ -36,81 +29,33 @@ This project evaluates four different face detection methods on a subset of the 
 
 3. **Run the analysis**
    ```bash
-   jupyter notebook face_detection_analysis.ipynb
+   python3 run_evaluation.py
    ```
 
-### Option 2: Docker (Recommended)
+### Option 2: Docker
 
-1. **Build and run with Docker Compose**
-   ```bash
-   docker-compose up --build
-   ```
-
-2. **Access Jupyter Notebook**
-   - Open your browser and go to `http://localhost:8888`
-   - Open `face_detection_analysis.ipynb`
-
-### Option 3: Docker without Compose
-
-1. **Build the image**
+1. **Build and run with Docker**
    ```bash
    docker build -t face-detection .
-   ```
-
-2. **Run the container**
-   ```bash
-   docker run -p 8888:8888 -v $(pwd):/app face-detection
+   docker run face-detection
    ```
 
 ## 📁 Project Structure
 
 ```
 face-detection-analysis/
-├── data/
-│   ├── annos.json              # WIDER FACE annotations
-│   └── images/                 # Dataset images (500 images)
 ├── models/
 │   ├── opencv_haar.py         # Haar Cascade implementation
 │   ├── opencv_dnn.py          # OpenCV DNN implementation
 │   ├── retina_face.py         # RetinaFace implementation
 │   ├── scrfd.py               # SCRFD implementation
-│   └── opencv_dnn_models/     # Pre-trained DNN models
+│   ├── mtcnn.py               # MTCNN implementation
 ├── evaluation.py               # Evaluation metrics and IoU calculation
-├── visualization.py            # Plotting and visualization utilities
 ├── face_detection_analysis.ipynb  # Main analysis notebook
 ├── requirements.txt           # Python dependencies
 ├── Dockerfile                 # Docker configuration
-├── docker-compose.yml         # Docker Compose configuration
 └── README.md                  # This file
 ```
-
-## 🔧 Dependencies
-
-- **OpenCV 4.8.1** - Computer vision library
-- **NumPy 1.24.3** - Numerical computing
-- **Matplotlib 3.7.2** - Plotting and visualization
-- **Pillow 10.0.0** - Image processing
-- **RetinaFace 0.0.13** - Face detection library
-- **Scikit-learn 1.3.0** - Machine learning metrics
-- **Jupyter 1.0.0** - Interactive notebooks
-- **tqdm 4.65.0** - Progress bars
-
-## 📈 Evaluation Metrics
-
-The project evaluates each model using:
-
-- **Precision**: True Positives / (True Positives + False Positives)
-- **Recall**: True Positives / (True Positives + False Negatives)
-- **F1-Score**: Harmonic mean of Precision and Recall
-- **Processing Speed**: Average time per image
-- **IoU Threshold**: 0.5 for matching detections to ground truth
-
-## 🎨 Visualization Features
-
-- **Sample Detection Visualization**: Side-by-side comparison of all models
-- **Performance Charts**: Precision, Recall, F1-Score, and speed comparisons
-- **Error Analysis**: Detection rates, false positive rates, and miss rates
-- **Dataset Statistics**: Face count distribution, blur, and pose analysis
 
 ## 📊 Evaluation Results
 
@@ -138,71 +83,4 @@ Based on evaluation of 500 images from WIDER FACE dataset:
 - **OpenCV DNN** provides a good balance between accuracy and speed
 - **SCRFD** offers competitive performance with faster inference
 - **OpenCV Haar** is fastest but has lower accuracy, especially on challenging cases
-
-### Use Case Recommendations
-- **High Accuracy Applications**: RetinaFace
-- **Real-time Applications**: OpenCV Haar or SCRFD
-- **Balanced Performance**: OpenCV DNN
-- **Resource-Constrained**: OpenCV Haar
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **Model Download Errors**
-   - Ensure internet connection for model downloads
-   - Check firewall settings
-
-2. **Memory Issues**
-   - Reduce batch size in evaluation
-   - Process images in smaller batches
-
-3. **Docker Issues**
-   - Ensure Docker is running
-   - Check port 8888 is available
-
-### Performance Optimization
-
-- Use GPU acceleration for faster inference (modify model configurations)
-- Implement batch processing for large datasets
-- Consider model quantization for deployment
-
-## 📝 Technical Details
-
-### IoU Calculation
-The project uses Intersection over Union (IoU) with a threshold of 0.5 to match detections with ground truth bounding boxes.
-
-### Model Implementations
-- **Haar Cascade**: Uses OpenCV's built-in frontal face cascade
-- **OpenCV DNN**: ResNet-based face detector with Caffe backend
-- **RetinaFace**: Single-stage detector with multi-scale feature maps
-- **SCRFD**: Simplified version with fallback to OpenCV DNN
-
-### Evaluation Process
-1. Load ground truth annotations
-2. Run each model on all images
-3. Match detections using IoU threshold
-4. Calculate precision, recall, and F1-score
-5. Measure processing time
-6. Generate visualizations and reports
-
-## 🤝 Contributing
-
-This project was created for a Junior Computer Vision Engineer assignment. For improvements or extensions:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## 📄 License
-
-This project is created for educational purposes as part of a technical assignment.
-
-## 📧 Contact
-
-For questions about this implementation, please contact the repository owner.
-
----
-
-**Note**: This project demonstrates proficiency in computer vision, Python development, evaluation metrics, and project organization as required for the Junior Computer Vision Engineer position.
+- **MTCNN** has the best balance between accuracy and latency
