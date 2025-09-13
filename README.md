@@ -28,8 +28,9 @@ This project evaluates four different face detection methods on a subset of the 
    ```
 
 3. **Run the analysis**
-   During evaluation, firstly it shows random image with ground truth annotations and then predictions of all models, to proceed to evaluation of all images just close the plot
    ```bash
+   # Firstly it shows random image with ground truth annotations and then predictions of all models
+   # To proceed to evaluation of all images just close the plot
    python3 run_evaluation.py
    ```
 
