@@ -2,14 +2,14 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install system dependencies for OpenCV (compatible versions)
+# Install system dependencies for OpenCV and other packages
 RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
     libsm6 \
     libxext6 \
     libxrender1 \
     libgomp1 \
-    libgl1-mesa-glx \
+    libgl1-mesa-dev \
     libgtk-3-0 \
     libavcodec-dev \
     libavformat-dev \
@@ -20,7 +20,8 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libpng-dev \
     libtiff-dev \
-    libatlas-base-dev \
+    libopenblas-dev \
+    liblapack-dev \
     python3-dev \
     wget \
     curl \
