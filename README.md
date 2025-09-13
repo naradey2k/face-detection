@@ -62,7 +62,7 @@ face-detection-analysis/
 Based on evaluation of 500 images from WIDER FACE dataset:
 
 | Model | Precision | Recall | Speed (s/img) | Total Time (s) |
-|-------|-----------|--------|----------|---------------|----------------|
+|-------|-----------|--------|---------------|----------------|
 | OpenCV Haar | 0.5074 | 0.1164 | 0.0534 | 26.71 |
 | OpenCV DNN | 0.9406 | 0.0769 | 0.0207 | 10.35 |
 | RetinaFace | 0.9081 | 0.1905 | 0.1843 | 92.16 |
