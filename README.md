@@ -21,13 +21,17 @@ This project evaluates four different face detection methods on a subset of the 
    git clone https://github.com/naradey2k/face-detection.git
    cd face-detection
    ```
-
-2. **Install dependencies**
+2. **Unzip data into data/ folder**
+   ```bash
+   unzip test_data.zip -d data/
+   ```
+   
+4. **Install dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Run the analysis**
+5. **Run the analysis**
    ```bash
    # Firstly it shows random image with ground truth annotations and then predictions of all models
    # To proceed to evaluation of all images just close the plot
