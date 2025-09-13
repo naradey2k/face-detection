@@ -18,7 +18,7 @@ This project evaluates four different face detection methods on a subset of the 
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone [<repository-url>](https://github.com/naradey2k/face-detection.git)
    cd face-detection
    ```
 
@@ -61,13 +61,13 @@ face-detection-analysis/
 
 Based on evaluation of 500 images from WIDER FACE dataset:
 
-| Model | Precision | Recall | F1-Score | Speed (s/img) | Total Time (s) |
+| Model | Precision | Recall | Speed (s/img) | Total Time (s) |
 |-------|-----------|--------|----------|---------------|----------------|
-| OpenCV Haar | 0.5074 | 0.1164 | 0.1891 | 0.0534 | 26.71 |
-| OpenCV DNN | 0.9406 | 0.0769 | 0.1424 | 0.0207 | 10.35 |
-| RetinaFace | 0.9081 | 0.1905 | 0.3151 | 0.1843 | 92.16 |
-| SCRFD | 0.9315 | 0.3820 | 0.5434 | 0.0756 | 37.79 |
-| MTCNN | 0.9168 | 0.3519 | 0.5087 | 0.2792 | 139.60 |
+| OpenCV Haar | 0.5074 | 0.1164 | 0.0534 | 26.71 |
+| OpenCV DNN | 0.9406 | 0.0769 | 0.0207 | 10.35 |
+| RetinaFace | 0.9081 | 0.1905 | 0.1843 | 92.16 |
+| SCRFD | 0.9315 | 0.3820 | 0.0756 | 37.79 |
+| MTCNN | 0.9168 | 0.3519 | 0.2792 | 139.60 |
 
 ### Key Findings:
 - **SCRFD** achieved the best balance with highest F1-Score (0.5434) and good recall (0.3820)
