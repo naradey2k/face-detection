@@ -18,7 +18,7 @@ This project evaluates four different face detection methods on a subset of the 
 
 1. **Clone the repository**
    ```bash
-   git clone [<repository-url>](https://github.com/naradey2k/face-detection.git)
+   git clone https://github.com/naradey2k/face-detection.git
    cd face-detection
    ```
 
